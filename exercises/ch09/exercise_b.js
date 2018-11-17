@@ -10,5 +10,7 @@
 // then purely log it. Hint: you may want to use `split` and `last` to obtain the
 // basename from a filepath.
 
+const basename = compose(last, split('/'))
+
 // logFilename :: IO ()
-const logFilename = undefined;
+const logFilename = compose(chain(pureLog), map(basename), getFile)
