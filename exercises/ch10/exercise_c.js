@@ -14,4 +14,6 @@
 // Write an IO that gets both player1 and player2 from the cache and starts the game.
 
 // startGame :: IO String
-const startGame = undefined;
+const startGame = IO.of(game)
+  .ap(getFromCache('player1'))
+  .ap(getFromCache('player2'))
